@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToolCartService } from '../tool-cart.service';
 import { Tool } from './tool';
 
 @Component({
@@ -91,15 +92,14 @@ export class ToolListComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  constructor(private cart:ToolCartService) {
+  }
 
   ngOnInit(): void {}
 
-  upQuantity(tool: Tool): void {
-    if (tool.quantity < tool.stock) tool.quantity++;
-  }
-
-  downQuantity(tool: Tool): void {
-    if (tool.quantity > 0) tool.quantity--;
+  addToCart(tool):void {
+    this.cart.addToCart(tool);
+    tool.stock -= tool.quantity;
+    tool.quantity=0;
   }
 }
