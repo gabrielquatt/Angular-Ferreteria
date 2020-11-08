@@ -1,8 +1,12 @@
 <div class="carrito">
   <h4>carrito compras</h4>
-  <ul>
-    <li *ngFor="let t of (cartList$ | async)" >
-      <p *ngIf="t.quantity!=0">{{t.name}}: {{t.quantity}}</p>
-    </li>
-  </ul>
-</div>
+  <div class="productos">
+    <ul>
+      <li *ngFor="let t of (cartList$ | async)">
+      <p *ngIf="t.quantity!=0"> {{t.name}}:{{t.quantity}}</p>
+        <!-- <p *ngIf="seActualizo(t.quantity, t.price)">{{t.name}}:{{t.quantity}}</p>-->
+      </li>
+    </ul>
+  </div>
+  <h2> total:{{num()}} </h2>
+  </div>

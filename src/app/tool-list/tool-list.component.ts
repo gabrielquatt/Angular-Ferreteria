@@ -92,14 +92,18 @@ export class ToolListComponent implements OnInit {
     },
   ];
 
-  constructor(private cart:ToolCartService) {
+  constructor(private cart: ToolCartService) {
   }
 
   ngOnInit(): void {}
 
-  addToCart(tool):void {
+  addToCart(tool): void {
     this.cart.addToCart(tool);
+    this.cart.maxCompra();
     tool.stock -= tool.quantity;
-    tool.quantity=0;
+    tool.quantity = 0;
   }
+
 }
+
+

@@ -5,5 +5,5 @@
 
   <button class="btn btn-primary btn-sm" (click)="upQuantity()">+</button>
 
-  <input type="range" min="0" [max]="max" [(ngModel)]="quantity">
+  <input type="range" min="0" [max]="max" [(ngModel)]="quantity" (click)="upQuantity()">
 </div>

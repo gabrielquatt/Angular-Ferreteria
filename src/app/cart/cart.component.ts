@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, observable } from 'rxjs';
+import { Observable } from 'rxjs';
+
 import { ToolCartService } from '../tool-cart.service';
 
 import { Tool } from '../tool-list/tool';
@@ -16,6 +17,7 @@ export class CartComponent implements OnInit {
   //----------------------------------------------//
   //option 2:
     cartList$: Observable<Tool[]>;
+
   //----------------------------------------------//
 
   constructor(private cart:ToolCartService) {
@@ -23,12 +25,20 @@ export class CartComponent implements OnInit {
   //option 1: forma sin desuscripcion
   //cart.cartList.subscribe((observable)=>this.cartList=observable);
   //----------------------------------------------//
-  //option 1: forma sin desuscripcion
+  //option 2:
     this.cartList$ = cart.cartList.asObservable();
-
    }
 
+  total =0;
   ngOnInit(): void {
+  }
+
+  num():number{
+    this.total= this.cart.price;
+    setTimeout(()=>{
+    this.num();
+ }, 3000);
+    return this.total;
   }
 
 }

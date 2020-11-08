@@ -31,7 +31,6 @@
         <td>{{tool.price | currency}}</td>
 
         <td>
-
           <span *ngIf="tool.stock == 0; else showStock" class="badge badge-warning">SIN STOCK</span>
 
           <ng-template #showStock>

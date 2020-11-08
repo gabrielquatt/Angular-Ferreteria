@@ -1,6 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Tool } from '../tool-list/Tool';
-
 
 @Component({
   selector: 'app-input-integer-range',
