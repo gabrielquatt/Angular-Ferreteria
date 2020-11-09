@@ -93,19 +93,19 @@ export class ToolListComponent implements OnInit {
     }
   ];
 
-  productList$: Observable<Tool[]>;
+  toolList$: Observable<Tool[]>;
 
   constructor(private cart: ToolCartService) {
-    this.productList$ = cart.productList.asObservable();
+    this.toolList$ = cart.toolList.asObservable();
   }
 
   ngOnInit(): void {
-    this.cart.refresh(this.t);
+    this.cart.refresh(this.tools);
   }
 
   addToCart(tool): void {
     this.cart.addToCart(tool);
-    this.cart.maxCompra();
+    this.cart.priceCart();
     tool.stock -= tool.quantity;
     tool.quantity = 0;
   }

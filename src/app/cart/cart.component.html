@@ -1,15 +1,27 @@
 <div class="carrito">
-	<h4>carrito compras</h4>
-	<div class="productos">
-		<ul>
-			<li *ngFor="let t of (cartList$ | async)">
-				<span *ngIf="t.quantity!=0">
-          <p>{{t.name}}:{{t.quantity}}</p>
-				  <button type="button"  (click)="remove(t)">borrar</button>
-        </span>
-				<!-- <p *ngIf="seActualizo(t.quantity, t.price)">{{t.name}}:{{t.quantity}}</p>-->
-			</li>
-		</ul>
-	</div>
-	<h2> total:{{num()}} </h2>
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <td class="bg-success" colspan="3">
+            <h4>carrito compras
+          </h4>
+          </td>
+        </tr>
+        <tr>
+          <td>Nombre</td>
+          <td>Cantidad</td>
+          <td></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let t of (cartList$ | async)">
+          <td *ngIf="t.quantity!=0" scope="col">{{t.name}}</td>
+            <td *ngIf="t.quantity!=0" scope="col">{{t.quantity}}</td>
+            <td *ngIf="t.quantity!=0"><button type="button" class="btn btn-primary btn-sm"  (click)="remove(t)">quitar</button></td>
+        </tr>
+        <tr>
+          <td colspan="3"><h4> Total: {{totalPrice() | currency}}</h4></td>
+        </tr>
+      </tbody>
+    </table>
 </div>

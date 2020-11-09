@@ -31,15 +31,15 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {}
 
   remove(tool: Tool) {
-    this.num();
+    this.totalPrice();
     this.cart.delete(tool);
   }
 
   //TODO buscar solucionar la obtencion del precio de los elemento en el carrito de una mejor manera
-  num(): number {
+  totalPrice(): number {
     this.total = this.cart.price;
     setTimeout(() => {
-      this.num();
+      this.totalPrice();
     }, 3000);
     return this.total;
   }
