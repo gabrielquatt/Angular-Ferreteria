@@ -22,14 +22,14 @@ export class InputIntegerRangeComponent implements OnInit {
   }
 
   upQuantity(): void {
-    if (this.quantity < this.max && this.quantity > 0){
+    if (this.quantity < this.max && this.quantity >= 0){
       this.quantity++;
       this.quantityChange.emit(this.quantity);
     }
   }
 
   downQuantity(): void {
-    if (this.quantity > 0 && this.quantity< this.max){
+    if (this.quantity > 0 && this.quantity < this.max){
       this.quantity--;
       this.quantityChange.emit(this.quantity);
     }
