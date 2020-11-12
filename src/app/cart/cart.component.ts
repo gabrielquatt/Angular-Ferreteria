@@ -10,12 +10,14 @@ import { Tool } from "../tool-list/tool";
   templateUrl: "./cart.component.html",
   styleUrls: ["./cart.component.scss"]
 })
+
 export class CartComponent implements OnInit {
   //option 1: forma sin desuscripcion
   //cartList: Tool[];
   //----------------------------------------------//
   //option 2:
   cartList$: Observable<Tool[]>;
+  priceCart$: Observable<number>;
 
   //----------------------------------------------//
 
@@ -25,22 +27,13 @@ export class CartComponent implements OnInit {
     //----------------------------------------------//
     //option 2:
     this.cartList$ = cart.cartList.asObservable();
+    this.priceCart$ = cart.getPriceCart()
   }
 
-  total = 0;
   ngOnInit(): void {}
 
   remove(tool: Tool) {
-    this.totalPrice();
     this.cart.delete(tool);
   }
 
-  //TODO buscar solucionar la obtencion del precio de los elemento en el carrito de una mejor manera
-  totalPrice(): number {
-    this.total = this.cart.price;
-    setTimeout(() => {
-      this.totalPrice();
-    }, 3000);
-    return this.total;
-  }
 }

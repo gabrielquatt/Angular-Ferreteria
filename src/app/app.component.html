@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary text-uppercase">
   <a class="navbar-brand">{{title}}</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
     aria-expanded="false" aria-label="Toggle navigation">
@@ -19,7 +19,17 @@
   </div>
 </nav>
 
-<div class="container">
+<div>
   <router-outlet></router-outlet>
 </div>
-<footer class="footer">{{title}} - Angular 2020</footer>
+
+<!-- Footer -->
+<footer  class="p-3 mb-2 bg-primary text-white">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    {{title}} - Angular 2020
+  </div>
+  <!-- Copyright -->
+
+</footer>

@@ -20,8 +20,9 @@
             <td *ngIf="t.quantity!=0"><button type="button" class="btn btn-primary btn-sm"  (click)="remove(t)">quitar</button></td>
         </tr>
         <tr>
-          <td colspan="3"><h4> Total: {{totalPrice() | currency}}</h4></td>
+          <td colspan="3"><h4> Total: {{priceCart$ | async | currency}}</h4></td>
         </tr>
       </tbody>
     </table>
+
 </div>

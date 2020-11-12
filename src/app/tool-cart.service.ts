@@ -13,8 +13,7 @@ import { Tool } from "./tool-list/tool";
 export class ToolCartService {
   private _cartList: Tool[] = [];
   private _toolList: Tool[] = [];
-
-  price: number = 0;
+  private precioPrueba: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
   //observable
   cartList: BehaviorSubject<Tool[]> = new BehaviorSubject([]);
@@ -42,7 +41,11 @@ export class ToolCartService {
         aux += elem.price * elem.quantity;
       });
     });
-    this.price = aux;
+     aux;
+    this.precioPrueba.next(aux);
+  }
+  getPriceCart (): BehaviorSubject <number> {
+    return this.precioPrueba;
   }
 
   delete(tool: Tool) {
