@@ -104,9 +104,9 @@ export class ToolListComponent implements OnInit {
   }
 
   addToCart(tool): void {
-    this.cart.addToCart(tool);
-    this.cart.priceCart();
-    tool.stock -= tool.quantity;
+    this.cart.addToCart(tool); //agrego elemento al carrito
+    this.cart.priceCart(); //actualizo el precio del carrito
+    /tool.stock -= tool.quantity;
     tool.quantity = 0;
   }
 }
