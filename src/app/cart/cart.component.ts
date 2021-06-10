@@ -3,7 +3,7 @@ import { Observable } from "rxjs";
 
 import { ToolCartService } from "../tool-cart.service";
 
-import { Tool } from "../tool-list/tool";
+import { Tool } from "../tool-list/Tool";
 
 @Component({
   selector: "app-cart",
